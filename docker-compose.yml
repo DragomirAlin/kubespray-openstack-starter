@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  infra:
+    container_name: kubespray-openstack-starter
+    image: kubespray-openstack-starter
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        TERRAFORM_VERSION: ${TERRAFORM_VERSION}
+        CLUSTER_NAME: ${CLUSTER_NAME}
+        INFRA: ${INFRA}
+    volumes:
+      - .:/project
+    env_file: 
+      - ec2_credentials.env
+      - openstack.env
