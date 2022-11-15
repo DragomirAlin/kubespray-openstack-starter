@@ -28,8 +28,8 @@ RUN unzip /usr/bin/terraform_${TERRAFORM_VERSION}_linux_amd64.zip -d /usr/bin \
      && rm -f /usr/bin/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
 
 # SSH setup
-COPY ${INFRA}/id_rsa.pub /root/.ssh/id_rsa.pub
-COPY ${INFRA}/id_rsa /root/.ssh/id_rsa
+COPY ${SSH_KEY_PATH}/id_rsa.pub /root/.ssh/id_rsa.pub
+COPY ${SSH_KEY_PATH}/id_rsa /root/.ssh/id_rsa
 RUN chmod 600 /root/.ssh/id_rsa
 
 ENTRYPOINT ["bash", "entrypoint.sh"]

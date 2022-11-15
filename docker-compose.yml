@@ -14,5 +14,4 @@ services:
     volumes:
       - .:/project
     env_file: 
-      - ec2_credentials.env
       - openstack.env

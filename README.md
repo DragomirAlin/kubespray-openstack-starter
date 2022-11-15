@@ -8,27 +8,11 @@ A toolbox for deploying a Production Ready Kubernetes Cluster on Openstack. You 
 git clone https://github.com/kubernetes-sigs/kubespray
 ```
 
-## 2. Remote state for Terraform
-You could store your Terraform state on OpenStack Swift.
-
-1. Generate EC2 Credentials
+## 2. Environment Variables for Image
 ```bash
-AWS_ACCESS_KEY_ID=
-AWS_SECRET_ACCESS_KEY=
-AWS_REGION=
-AWS_S3_ENDPOINT=
-```
-
-2. Add `S3` backend to `kubespray/contrib/terraform/openstack/versions.tf`
-```terraform
-  backend "s3" {
-  bucket                      = "terraform"
-  key                         = "state"
-  encrypt                     = false
-  skip_credentials_validation = true
-  skip_region_validation      = true
-  force_path_style            = true
-  }
+TERRAFORM_VERSION= # terraform version
+CLUSTER_NAME= # your cluster name
+SSH_KEY_PATH= # your ssh keys path
 ```
 
 ## 3. Your OpenStack credentials
